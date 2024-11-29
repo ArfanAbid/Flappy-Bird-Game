@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         Debug.Log("Player Script is running");
-        InvokeRepeating(nameof(AnimateSprite), 0.15f, 0.15f);
+        InvokeRepeating(nameof(AnimateSprite), 0.10f, 0.10f);
     }
 
 
