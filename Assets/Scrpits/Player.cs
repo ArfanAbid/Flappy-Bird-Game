@@ -1,31 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
     public Sprite[] sprites;
-    public int spriteIndex;
+    public float strength = 5f;
+    public float gravity = -9.81f;
 
-
+    private SpriteRenderer spriteRenderer;
     private Vector3 direction;
-    public float gravity = -15f;// -9.8
-    public float strength = 7f; // 5
+    private int spriteIndex;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        Debug.Log("Player Script is running");
-        InvokeRepeating(nameof(AnimateSprite), 0.10f, 0.10f);
+        InvokeRepeating(nameof(AnimateSprite), 0.15f, 0.15f);
     }
+
     private void OnEnable()
     {
         Vector3 position = transform.position;
@@ -34,39 +28,38 @@ public class Player : MonoBehaviour
         direction = Vector3.zero;
     }
 
-
-
-    private void Update() 
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-        { 
-            // Either press spacebar or left click mouse
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
             direction = Vector3.up * strength;
         }
-        if (Input.touchCount > 0)
-        { 
-            // if there is at least one touch on the screen (mobile)
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
-            {
-                direction = Vector3.up * strength;
-            }
-        }
 
+        // Apply gravity and update the position
         direction.y += gravity * Time.deltaTime;
         transform.position += direction * Time.deltaTime;
+
     }
 
     private void AnimateSprite()
     {
         spriteIndex++;
 
-        if (spriteIndex >= sprites.Length)
-        {
+        if (spriteIndex >= sprites.Length) {
             spriteIndex = 0;
         }
 
-        spriteRenderer.sprite = sprites[spriteIndex];
-        
-    }    
+        if (spriteIndex < sprites.Length && spriteIndex >= 0) {
+            spriteRenderer.sprite = sprites[spriteIndex];
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Obstacle")) {
+            GameManager.Instance.GameOver();
+        } else if (other.gameObject.CompareTag("Scoring")) {
+            GameManager.Instance.IncreaseScore();
+        }
+    }
+
 }

@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4015738083fc214f91b951dfc40f757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  top: {fileID: 0}
-  bottom: {fileID: 0}
+  top: {fileID: 4094063577013359026}
+  bottom: {fileID: 4676794380179868291}
   speed: 5
   gap: 7
 --- !u!1 &3748268751373080609
