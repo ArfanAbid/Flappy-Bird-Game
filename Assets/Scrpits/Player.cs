@@ -26,6 +26,13 @@ public class Player : MonoBehaviour
         Debug.Log("Player Script is running");
         InvokeRepeating(nameof(AnimateSprite), 0.10f, 0.10f);
     }
+    private void OnEnable()
+    {
+        Vector3 position = transform.position;
+        position.y = 0f;
+        transform.position = position;
+        direction = Vector3.zero;
+    }
 
 
 

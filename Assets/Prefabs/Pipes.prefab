@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3684058998371416099}
   m_Layer: 0
   m_Name: scoring
-  m_TagString: Untagged
+  m_TagString: Scoring
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,6 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2281213700671654555}
+  - component: {fileID: -6282142958908541730}
   m_Layer: 0
   m_Name: Pipes
   m_TagString: Untagged
@@ -111,6 +112,22 @@ Transform:
   - {fileID: 7802364776568595281}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6282142958908541730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2651599410037314174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4015738083fc214f91b951dfc40f757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  top: {fileID: 0}
+  bottom: {fileID: 0}
+  speed: 5
+  gap: 7
 --- !u!1 &3748268751373080609
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +141,7 @@ GameObject:
   - component: {fileID: 345052856059016118}
   m_Layer: 0
   m_Name: bottomPipe
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +155,7 @@ Transform:
   m_GameObject: {fileID: 3748268751373080609}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.23, y: -7.94, z: 0}
+  m_LocalPosition: {x: 6.3, y: -8.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -254,7 +271,7 @@ GameObject:
   - component: {fileID: 5080022175763560124}
   m_Layer: 0
   m_Name: topPipe
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 8916927257996102707}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 6.34, y: 7.71, z: 0}
+  m_LocalPosition: {x: 6.34, y: 8.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
